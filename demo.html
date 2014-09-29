@@ -43,12 +43,22 @@
       padding: 20px;
     }
     
-    paper-radio-button.blue::shadow #ink[checked] {
-      color: #4285f4;
+    paper-radio-button.styled::shadow #ink {
+      color: red;
     }
     
-    paper-radio-button.blue::shadow #onRadio {
-      background-color: #4285f4;
+    paper-radio-button.styled::shadow #ink[checked] {
+      color: #4285f4;
+    }
+
+    paper-radio-button.styled::shadow #outerRing,
+    paper-radio-button.styled::shadow #innerRing {
+      border-color: red;
+    }
+    
+    paper-radio-button.styled::shadow #outerRing[checked],
+    paper-radio-button.styled::shadow #innerRing[checked] {
+      border-color: #4285f4;
     }
     
   </style>
@@ -67,8 +77,18 @@
   </section>
   
   <section>
-    <div class="label">Radio button (toggles, Blue)</div>
-    <paper-radio-button class="blue" toggles></paper-radio-button>
+    <div class="label">Radio button (toggles, styled)</div>
+    <paper-radio-button class="styled" toggles></paper-radio-button>
+  </section>
+  
+  <section>
+    <div class="label">Radio button (disabled)</div>
+    <paper-radio-button disabled></paper-radio-button>
+  </section>
+  
+  <section>
+    <div class="label">Radio button (disabled, checked)</div>
+    <paper-radio-button disabled checked></paper-radio-button>
   </section>
   
 </body>

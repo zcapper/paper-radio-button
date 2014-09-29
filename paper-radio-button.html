@@ -28,9 +28,10 @@ To change the ink color for checked state:
     }
     
 To change the radio checked color:
-    
-    paper-radio-button::shadow #onRadio {
-      background-color: #4285f4;
+
+    paper-radio-button::shadow #outerRing[checked],
+    paper-radio-button::shadow #innerRing[checked] {
+      border-color: #4285f4;
     }
     
 To change the ink color for unchecked state:
@@ -41,7 +42,8 @@ To change the ink color for unchecked state:
     
 To change the radio unchecked color:
     
-    paper-radio-button::shadow #offRadio {
+    paper-radio-button::shadow #outerRing,
+    paper-radio-button::shadow #innerRing {
       border-color: #b5b5b5;
     }
 
@@ -61,10 +63,10 @@ To change the radio unchecked color:
   
   <div id="radioContainer" class="{{ {labeled: label} | tokenList }}">
   
-    <div id="offRadio"></div>
-    <div id="onRadio"></div>
+    <div id="innerRing" checked?="{{checked}}"></div>
+    <div id="outerRing" checked?="{{checked}}"></div>
     
-    <paper-ripple id="ink" class="circle recenteringTouch" checked?="{{!checked}}"></paper-ripple>
+    <paper-ripple id="ink" class="circle recenteringTouch" checked?="{{checked}}"></paper-ripple>
     
   </div>
   
@@ -144,7 +146,6 @@ To change the radio unchecked color:
     },
     
     checkedChanged: function() {
-      this.$.onRadio.classList.toggle('fill', this.checked);
       this.setAttribute('aria-checked', this.checked ? 'true': 'false');
       this.fire('core-change');
     },
