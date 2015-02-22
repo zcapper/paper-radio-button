@@ -51,6 +51,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   border: solid 2px;
   border-color: #5a5a5a;
   transition: border-color 0.28s;
+  box-sizing: content-box;
 }
 
 :host([checked]) #offRadio {
